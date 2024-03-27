@@ -6,22 +6,23 @@ using WeatherForecastsArchivesViewer.Infrastructure.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
-
-services.AddSingleton<IExcelWeatherArchiveReader, ExcelWeatherArchiveReader>();
+var configuration = builder.Configuration;
+var logger = builder.Logging;
 
 services.AddControllersWithViews();
-services.AddLogging();
 
+services.AddSingleton<IExcelWeatherArchiveReader, ExcelWeatherArchiveReader>();
+services.AddLogging();
 services.AddApplication();
 services.AddDatabase();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.Services.ApplyMigrations(configuration, app.Logger);
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

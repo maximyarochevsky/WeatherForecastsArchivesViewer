@@ -1,0 +1,85 @@
+﻿@using System.Globalization
+@using WeatherForecastsArchivesViewer.Application.Common.Helpers;
+@using WeatherForecastsArchivesViewer.Application.WeatherForecast.DTO;
+@using WeatherForecastsArchivesViewer.Domain.Entities
+@model List<WeatherForecastDto>
+
+@if (Model.Any())
+{
+    <!-- Выбор года -->
+    <ul class="nav nav-tabs justify-content-center" id="yearTabs" role="tablist">
+        @foreach (var year in Model.Select(f => f.Date.Year).Distinct().OrderBy(y => y))
+        {
+            <li class="nav-item">
+                <a class="nav-link" id="year-@year-tab" data-toggle="tab" href="#year-@year" role="tab" aria-controls="year-@year" aria-selected="true">@year</a>
+            </li>
+        }
+    </ul>
+
+    <!-- Контент блока выбранного года -->
+    <div class="tab-content" id="yearTabsContent">
+        @foreach (var year in Model.Select(f => f.Date.Year).Distinct().OrderBy(y => y))
+        {
+            <div class="tab-pane fade" id="year-@year" role="tabpanel" aria-labelledby="year-@year-tab">
+                <!-- Выбор месяца -->
+                <ul class="nav nav-tabs justify-content-center" id="monthTabs-@year" role="tablist">
+                    @foreach (var month in Model.Where(f => f.Date.Year == year).Select(f => f.Date.Month).Distinct().OrderBy(m => m))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" id="month-@year-@month-tab" data-toggle="tab" href="#month-@year-@month" role="tab" aria-controls="month-@year-@month" aria-selected="true">@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)</a>
+                        </li>
+                    }
+                </ul>
+                <!-- Контент блока выбранного месяца -->
+                <div class="tab-content" id="monthTabsContent-@year">
+                    @foreach (var month in Model.Where(f => f.Date.Year == year).Select(f => f.Date.Month).Distinct().OrderBy(m => m))
+                    {
+                        <div class="tab-pane fade" id="month-@year-@month" role="tabpanel" aria-labelledby="month-@year-@month-tab">
+                            <table class="table table-striped" style="font-size: 13px; margin: auto;">
+                                <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Время</th>
+                                        <th>Температура</th>
+                                        <th>Влажность</th>
+                                        <th>Точка росы</th>
+                                        <th>Атмосферное давление</th>
+                                        <th>Направление ветра</th>
+                                        <th>Скорость ветра</th>
+                                        <th>Облачность</th>
+                                        <th>Нижняя граница облачности</th>
+                                        <th>Горизонтальная видимость</th>
+                                        <th>Погодные явления</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var forecast in Model.Where(f => f.Date.Year == year && f.Date.Month == month))
+                                    {
+                                        <tr>
+                                            <td>@forecast.Date.ToString("yyyy-MM-dd")</td>
+                                            <td>@forecast.Time.ToString(@"hh\:mm")</td>
+                                            <td>@forecast.Temperature</td>
+                                            <td>@forecast.AirHumidity</td>
+                                            <td>@forecast.DewPoint</td>
+                                            <td>@forecast.AtmosphereicPressure</td>
+                                            <td>@WindDirectionParser.GetRussianWindDirection(forecast.WindDirection)</td>
+                                            <td>@forecast.WindSpeed</td>
+                                            <td>@forecast.CloudCover</td>
+                                            <td>@forecast.LowerLimitCloudCover</td>
+                                            <td>@forecast.HorizontalVisibility</td>
+                                            <td>@forecast.WeatherEvent</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-center">Архивы с прогнозами отсутствуют</p>
+}

@@ -1,0 +1,24 @@
+﻿@using System.Globalization
+@using WeatherForecastsArchivesViewer.Application.WeatherForecast.DTO;
+@using WeatherForecastsArchivesViewer.Domain.Entities
+@model List<WeatherForecastDto>
+
+@{
+    var errorMessage = ViewData["ErrorMessage"] as string;
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1>Архивы прогнозов</h1>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-3">На главную</a>
+    </div>
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @errorMessage
+        </div>
+    }
+
+    <partial Name="Partial/_WeatherForecastsTable" model="Model" />
+</div>
