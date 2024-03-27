@@ -2,9 +2,9 @@ using System.Text;
 using Microsoft.Extensions.Logging;
 using Npgsql;
 using PigTrade.DataPlant.Abstractions.Ports.Database;
-using WeatherForecastsArchiveViewer.Application.Interfaces.Persistence;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 
-namespace WeatherForecastsArchiveViewer.Infrastructure.Persistence;
+namespace WeatherForecastsArchivesViewer.Infrastructure.Persistence;
 
 /// <inheritdoc cref="IDatabasePort"/>
 internal class DatabaseAdapter : IDatabasePort

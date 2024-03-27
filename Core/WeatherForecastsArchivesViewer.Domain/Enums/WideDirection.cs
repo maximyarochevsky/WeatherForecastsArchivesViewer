@@ -1,4 +1,4 @@
-﻿namespace WeatherForecastsArchiveViewer.Domain.Enums;
+﻿namespace WeatherForecastsArchivesViewer.Domain.Enums;
 
 /// <summary>
 /// Направления ветра.

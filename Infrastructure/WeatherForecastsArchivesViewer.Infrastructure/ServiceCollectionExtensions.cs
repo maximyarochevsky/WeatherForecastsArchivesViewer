@@ -3,14 +3,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Net.Sockets;
-using WeatherForecastsArchiveViewer.Infrastructure.Persistence;
+using WeatherForecastsArchivesViewer.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using WeatherForecastsArchiveViewer.Application.Interfaces.Persistence;
-using WeatherForecastsArchiveViewer.Infrastructure.Persistence.Repositories;
-using WeatherForecastsArchiveViewer.Application.Interfaces.Persistence.Repositories;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
+using WeatherForecastsArchivesViewer.Infrastructure.Persistence.Repositories;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence.Repositories;
 using PigTrade.DataPlant.Abstractions.Ports.Database;
 
-namespace WeatherForecastsArchiveViewer.Infrastructure;
+namespace WeatherForecastsArchivesViewer.Infrastructure;
 
 /// <summary>
 /// Статический класс расширений для <see cref="IServiceCollection"/>.

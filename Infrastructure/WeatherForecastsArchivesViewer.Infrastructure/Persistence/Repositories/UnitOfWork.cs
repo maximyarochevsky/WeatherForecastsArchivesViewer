@@ -1,7 +1,7 @@
-﻿using WeatherForecastsArchiveViewer.Application.Interfaces.Persistence;
-using WeatherForecastsArchiveViewer.Application.Interfaces.Persistence.Repositories;
+﻿using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence.Repositories;
 
-namespace WeatherForecastsArchiveViewer.Infrastructure.Persistence.Repositories;
+namespace WeatherForecastsArchivesViewer.Infrastructure.Persistence.Repositories;
 
 /// <inheritdoc cref="IUnitOfWork"/>
 public class UnitOfWork : IUnitOfWork

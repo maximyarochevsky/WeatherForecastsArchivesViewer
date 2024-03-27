@@ -1,5 +1,5 @@
 using JetBrains.Annotations;
-using WeatherForecastsArchiveViewer.Application.Interfaces.Persistence;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 
 namespace PigTrade.DataPlant.Abstractions.Ports.Database;
 

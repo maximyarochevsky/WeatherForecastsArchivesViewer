@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using WeatherForecastsArchiveViewer.Application.Interfaces.Persistence.Repositories;
-using WeatherForecastsArchiveViewer.Domain.Entities;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence.Repositories;
+using WeatherForecastsArchivesViewer.Domain.Entities;
 
-namespace WeatherForecastsArchiveViewer.Infrastructure.Persistence.Repositories;
+namespace WeatherForecastsArchivesViewer.Infrastructure.Persistence.Repositories;
 
 /// <inheritdoc cref="IWeatherForecastRepository"/>
 public class WeatherForecastRepository : IWeatherForecastRepository

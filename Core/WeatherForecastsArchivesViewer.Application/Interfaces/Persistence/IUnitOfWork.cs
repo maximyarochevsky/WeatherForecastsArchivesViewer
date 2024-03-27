@@ -1,6 +1,6 @@
-﻿using WeatherForecastsArchiveViewer.Application.Interfaces.Persistence.Repositories;
+﻿using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence.Repositories;
 
-namespace WeatherForecastsArchiveViewer.Application.Interfaces.Persistence;
+namespace WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 
 /// <summary>
 /// Провайдер репозиториев.

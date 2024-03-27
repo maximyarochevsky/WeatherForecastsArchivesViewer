@@ -1,6 +1,6 @@
-﻿using WeatherForecastsArchiveViewer.Domain.Entities;
+﻿using WeatherForecastsArchivesViewer.Domain.Entities;
 
-namespace WeatherForecastsArchiveViewer.Application.Interfaces.Persistence.Repositories;
+namespace WeatherForecastsArchivesViewer.Application.Interfaces.Persistence.Repositories;
 
 /// <summary>
 /// Хранилище прогнозов.

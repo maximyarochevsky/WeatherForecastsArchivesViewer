@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using WeatherForecastsArchiveViewer.Domain.Enums;
+using WeatherForecastsArchivesViewer.Domain.Enums;
 
-namespace WeatherForecastsArchiveViewer.Domain.Entities;
+namespace WeatherForecastsArchivesViewer.Domain.Entities;
 
 [Table("weather_forecasts")]
 [PrimaryKey(nameof(Id))]

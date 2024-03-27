@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using WeatherForecastsArchiveViewer.Domain.Entities;
-using WeatherForecastsArchiveViewer.Domain.Enums;
+using WeatherForecastsArchivesViewer.Domain.Entities;
+using WeatherForecastsArchivesViewer.Domain.Enums;
 
-namespace WeatherForecastsArchiveViewer.Infrastructure.Persistence;
+namespace WeatherForecastsArchivesViewer.Infrastructure.Persistence;
 
 /// <summary>
 /// Контекст базы данных.
