@@ -25,4 +25,4 @@
 ## Запуск приложения
 
 1. Настройте подключение к базе данных в файле `appsettings.json`.
-3. Запустите приложение WeatherArchiveViewer.csproj
+3. Запустите приложение Presentation/WeatherArchiveViewer/WeatherArchiveViewer.csproj
