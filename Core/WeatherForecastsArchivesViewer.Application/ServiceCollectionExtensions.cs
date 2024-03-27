@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
+using WeatherForecastsArchivesViewer.Application.Common.Mappings;
+
 namespace WeatherForecastsArchivesViewer.Application;
 
 /// <summary>
@@ -12,6 +15,11 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddApplication(this IServiceCollection
         services)
     {
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        services.AddAutoMapper(config =>
+        {
+            config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+        });
 
         return services;
     }
