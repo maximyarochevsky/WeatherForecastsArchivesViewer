@@ -7,13 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\WeatherForecastsArchivesViewer.Application\WeatherForecastsArchivesViewer.Application.csproj" />
-    <ProjectReference Include="..\..\Core\WeatherForecastsArchivesViewer.Domain\WeatherForecastsArchivesViewer.Domain.csproj" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persistence\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Npgsql" Version="7.0.6" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\WeatherForecastsArchivesViewer.Application\WeatherForecastsArchivesViewer.Application.csproj" />
+    <ProjectReference Include="..\..\Core\WeatherForecastsArchivesViewer.Domain\WeatherForecastsArchivesViewer.Domain.csproj" />
   </ItemGroup>
 
 </Project>

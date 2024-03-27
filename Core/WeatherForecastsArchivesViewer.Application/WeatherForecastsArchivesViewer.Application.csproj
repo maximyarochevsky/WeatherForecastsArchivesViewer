@@ -7,17 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Common\**" />
+    <Compile Remove="WeatherForecast\**" />
+    <EmbeddedResource Remove="Common\**" />
+    <EmbeddedResource Remove="WeatherForecast\**" />
+    <None Remove="Common\**" />
+    <None Remove="WeatherForecast\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WeatherForecastsArchivesViewer.Domain\WeatherForecastsArchivesViewer.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="WeatherForecast\Commands\" />
-    <Folder Include="WeatherForecast\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
 
