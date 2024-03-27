@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-namespace WeatherForecastsArchiveViewer.Application;
+namespace WeatherForecastsArchivesViewer.Application;
 
 /// <summary>
 /// Статический класс расширений для <see cref="IServiceCollection"/>.

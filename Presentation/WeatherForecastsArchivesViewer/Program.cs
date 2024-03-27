@@ -1,12 +1,17 @@
-using WeatherForecastsArchiveViewer.Application;
-using WeatherForecastsArchiveViewer.Infrastructure;
+using WeatherForecastsArchivesViewer.Application;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Services;
+using WeatherForecastsArchivesViewer.Infrastructure;
+using WeatherForecastsArchivesViewer.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
-services.AddControllersWithViews();
 
+services.AddSingleton<IExcelWeatherArchiveReader, ExcelWeatherArchiveReader>();
+
+services.AddControllersWithViews();
 services.AddLogging();
+
 services.AddApplication();
 services.AddDatabase();
 
