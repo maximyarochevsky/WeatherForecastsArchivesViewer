@@ -10,7 +10,7 @@ public interface IWeatherForecastRepository
     /// <summary>
     /// Добавление списка новых прогнозов в БД. 
     /// </summary>
-    Task AddRangeForecasts(List<WeatherForecastEntity> forecasts, CancellationToken cancellationToken);
+    void AddRangeForecasts(IEnumerable<WeatherForecastEntity> forecasts);
 
     /// <summary>
     /// Получение прогнозов за нужный год.

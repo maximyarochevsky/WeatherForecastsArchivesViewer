@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 using WeatherForecastsArchivesViewer.Infrastructure.Persistence.Repositories;
 using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence.Repositories;
-using PigTrade.DataPlant.Abstractions.Ports.Database;
 
 namespace WeatherForecastsArchivesViewer.Infrastructure;
 

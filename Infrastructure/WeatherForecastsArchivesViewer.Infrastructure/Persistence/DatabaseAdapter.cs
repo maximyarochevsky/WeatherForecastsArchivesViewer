@@ -1,7 +1,6 @@
 using System.Text;
 using Microsoft.Extensions.Logging;
 using Npgsql;
-using PigTrade.DataPlant.Abstractions.Ports.Database;
 using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 
 namespace WeatherForecastsArchivesViewer.Infrastructure.Persistence;
@@ -10,17 +9,17 @@ namespace WeatherForecastsArchivesViewer.Infrastructure.Persistence;
 internal class DatabaseAdapter : IDatabasePort
 {
     /// <summary>
-    /// Контекст бд.
+    /// РљРѕРЅС‚РµРєСЃС‚ Р±Рґ.
     /// </summary>
     private readonly DatabaseContext _db;
 
     /// <summary>
-    /// Провайдер репозиториев.
+    /// РџСЂРѕРІР°Р№РґРµСЂ СЂРµРїРѕР·РёС‚РѕСЂРёРµРІ.
     /// </summary>
     private readonly IUnitOfWork _unitOfWork;
 
     /// <summary>
-    /// Логгер для ведения журнала работы программы.
+    /// Р›РѕРіРіРµСЂ РґР»СЏ РІРµРґРµРЅРёСЏ Р¶СѓСЂРЅР°Р»Р° СЂР°Р±РѕС‚С‹ РїСЂРѕРіСЂР°РјРјС‹.
     /// </summary>
     private readonly ILogger<DatabaseAdapter> _logger;
 
@@ -87,7 +86,7 @@ internal class DatabaseAdapter : IDatabasePort
     }
 
     /// <summary>
-    /// Проверяет, является ли исключение транзиентным. 
+    /// РџСЂРѕРІРµСЂСЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РёСЃРєР»СЋС‡РµРЅРёРµ С‚СЂР°РЅР·РёРµРЅС‚РЅС‹Рј. 
     /// </summary>
     private static bool IsTransientException(Exception? e)
     {
@@ -105,7 +104,7 @@ internal class DatabaseAdapter : IDatabasePort
     }
 
     /// <summary>
-    /// Получение сообщения об ошибке из исключения и всех его вложенных исключений.
+    /// РџРѕР»СѓС‡РµРЅРёРµ СЃРѕРѕР±С‰РµРЅРёСЏ РѕР± РѕС€РёР±РєРµ РёР· РёСЃРєР»СЋС‡РµРЅРёСЏ Рё РІСЃРµС… РµРіРѕ РІР»РѕР¶РµРЅРЅС‹С… РёСЃРєР»СЋС‡РµРЅРёР№.
     /// </summary>
     private static string GetErrorMessage(Exception e)
     {

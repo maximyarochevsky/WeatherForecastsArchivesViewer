@@ -2,12 +2,12 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PigTrade.DataPlant.Abstractions.Ports.Database;
-using WeatherForecastsArchivesViewer.Application.WeatherForecast.DTO;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 using WeatherForecastsArchivesViewer.Application.Interfaces.Services;
+using WeatherForecastsArchivesViewer.Application.WeatherForecast.DTO;
 using WeatherForecastsArchivesViewer.Domain.Entities;
 
-namespace WeatherForecastsArchivesViewer.Application.HourlyWeatherForecast.Commands.UploadWeatherArchiveCommand;
+namespace WeatherForecastsArchivesViewer.Application.WeatherForecast.Commands.UploadWeatherArchiveCommand;
 
 /// <summary>
 /// Обработчик запроса на загрузку архива(-ов) прогнозов погоды.
@@ -64,14 +64,14 @@ public class UploadWeatherArchiveHandler : IRequestHandler<UploadWeatherArchive,
                     var fileYear = _excelReader.GetFileYear(file);
 
                     var dbForecasts = await databaseProvider.Execute(async u => await u.WeatherForecast.GetForecastsByYear(fileYear, cancellationToken));
-                    var dbForecastsDTO = _mapper.Map<List<WeatherForecastDto>>(dbForecasts);
+                    var dbForecastsDto = _mapper.Map<List<WeatherForecastDto>>(dbForecasts);
 
                     var forecastArchive = _excelReader.ReadExcelFile(file, fileYear);
 
-                    var newForecasts = forecastArchive.Except(dbForecastsDTO).ToList();
+                    var newForecasts = forecastArchive.Except(dbForecastsDto).ToList();
                     var newForecastsEntities = _mapper.Map<List<WeatherForecastEntity>>(newForecasts);
 
-                    await databaseProvider.Execute(async u => await u.WeatherForecast.AddRangeForecasts(newForecastsEntities, cancellationToken));
+                    databaseProvider.Execute(u => u.WeatherForecast.AddRangeForecasts(newForecastsEntities));
                 }
             }
         }

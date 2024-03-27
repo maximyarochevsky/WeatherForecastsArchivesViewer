@@ -1,7 +1,6 @@
 using JetBrains.Annotations;
-using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 
-namespace PigTrade.DataPlant.Abstractions.Ports.Database;
+namespace WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 
 /// <summary>
 /// Провайдер БД транзакций.

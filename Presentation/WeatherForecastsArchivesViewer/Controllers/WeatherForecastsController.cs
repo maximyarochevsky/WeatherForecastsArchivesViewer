@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using WeatherForecastsArchivesViewer.Application.HourlyWeatherForecast.Commands.UploadWeatherArchiveCommand;
-using WeatherForecastsArchivesViewer.Application.HourlyWeatherForecast.Queries.GetAllForecastsQuery;
+using WeatherForecastsArchivesViewer.Application.WeatherForecast.Commands.UploadWeatherArchiveCommand;
+using WeatherForecastsArchivesViewer.Application.WeatherForecast.Queries.GetAllForecastsQuery;
 
 namespace WeatherForecastsArchivesViewer.Controllers;
 

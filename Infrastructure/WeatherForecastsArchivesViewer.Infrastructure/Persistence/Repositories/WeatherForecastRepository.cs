@@ -27,13 +27,12 @@ public class WeatherForecastRepository : IWeatherForecastRepository
     }
 
     /// <inheritdoc cref="IWeatherForecastRepository.AddRangeForecasts(List{WeatherForecastEntity})"/>
-    public async Task AddRangeForecasts(List<WeatherForecastEntity> forecasts, CancellationToken cancellationToken)
+    public void AddRangeForecasts(IEnumerable<WeatherForecastEntity> forecasts)
     {
-        WeatherForecastEntity df = new WeatherForecastEntity();
         try
         {
-            await _dbContext.AddRangeAsync(forecasts, cancellationToken);
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            _dbContext.AddRange(forecasts); 
+            _dbContext.SaveChanges();
         }
         catch (Exception ex)
         {

@@ -2,10 +2,10 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PigTrade.DataPlant.Abstractions.Ports.Database;
+using WeatherForecastsArchivesViewer.Application.Interfaces.Persistence;
 using WeatherForecastsArchivesViewer.Application.WeatherForecast.DTO;
 
-namespace WeatherForecastsArchivesViewer.Application.HourlyWeatherForecast.Queries.GetAllForecastsQuery;
+namespace WeatherForecastsArchivesViewer.Application.WeatherForecast.Queries.GetAllForecastsQuery;
 
 /// <summary>
 /// Обработчик запроса всех данных по прогнозам погоды.

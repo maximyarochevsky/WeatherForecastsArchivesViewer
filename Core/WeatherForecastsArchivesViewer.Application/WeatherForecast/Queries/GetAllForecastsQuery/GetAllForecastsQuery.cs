@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using WeatherForecastsArchivesViewer.Application.WeatherForecast.DTO;
 
-namespace WeatherForecastsArchivesViewer.Application.HourlyWeatherForecast.Queries.GetAllForecastsQuery;
+namespace WeatherForecastsArchivesViewer.Application.WeatherForecast.Queries.GetAllForecastsQuery;
 
 /// <summary>
 /// Запрос всех данных по прогнозам погоды.

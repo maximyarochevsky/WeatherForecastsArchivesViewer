@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 
-namespace WeatherForecastsArchivesViewer.Application.HourlyWeatherForecast.Commands.UploadWeatherArchiveCommand;
+namespace WeatherForecastsArchivesViewer.Application.WeatherForecast.Commands.UploadWeatherArchiveCommand;
 
 /// <summary>
 /// Запрос на загрузку архива(-ов) с прогнозами.

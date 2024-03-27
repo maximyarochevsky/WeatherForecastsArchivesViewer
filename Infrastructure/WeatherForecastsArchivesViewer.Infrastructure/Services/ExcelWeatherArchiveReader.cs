@@ -59,7 +59,7 @@ public class ExcelWeatherArchiveReader : IExcelWeatherArchiveReader
                 excelList = new XSSFWorkbook(stream);
             }
 
-            var forecastArchive = ReadExcelListWithMounthToListDTO(excelList, fileYear);
+            var forecastArchive = ReadExcelListWithMounthToListDto(excelList, fileYear);
 
             return forecastArchive;
         }
@@ -108,7 +108,7 @@ public class ExcelWeatherArchiveReader : IExcelWeatherArchiveReader
     /// <summary>
     /// Чтение excel листа с прогнозами на месяц в список.
     /// </summary>
-    private List<WeatherForecastDto> ReadExcelListWithMounthToListDTO(XSSFWorkbook excelList, int fileYear)
+    private List<WeatherForecastDto> ReadExcelListWithMounthToListDto(XSSFWorkbook excelList, int fileYear)
     {
       
         var mounthForecasts = new List<WeatherForecastDto>();
@@ -126,7 +126,7 @@ public class ExcelWeatherArchiveReader : IExcelWeatherArchiveReader
                     continue;
                 }
 
-                var forecast = ReadRowToDTO(row, fileYear);
+                var forecast = ReadRowToDto(row, fileYear);
 
                 mounthForecasts.Add(forecast);
             }
@@ -138,7 +138,7 @@ public class ExcelWeatherArchiveReader : IExcelWeatherArchiveReader
     /// <summary>
     /// Читает строку с часовым прогнозом погоды в экземпляр класса.
     /// </summary>
-    private WeatherForecastDto? ReadRowToDTO(IRow row, int fileYear)
+    private WeatherForecastDto? ReadRowToDto(IRow row, int fileYear)
     {
         try
         {
@@ -187,9 +187,9 @@ public class ExcelWeatherArchiveReader : IExcelWeatherArchiveReader
     private WindDirection? GetWindDirectionByCellValue(ICell cell)
     {
         var cellValue = cell.StringCellValue;
-        if (_windDirections.ContainsKey(cellValue))
+        if (_windDirections.TryGetValue(cellValue, out var value))
         {
-            return _windDirections[cellValue];
+            return value;
         }
         else
         {
@@ -200,7 +200,7 @@ public class ExcelWeatherArchiveReader : IExcelWeatherArchiveReader
     /// <summary>
     /// Возвращает значение ячейки или null.
     /// </summary>
-    private int? TryGetIntValue(ICell cell)
+    private static int? TryGetIntValue(ICell cell)
     {
         if (cell == null)
         {

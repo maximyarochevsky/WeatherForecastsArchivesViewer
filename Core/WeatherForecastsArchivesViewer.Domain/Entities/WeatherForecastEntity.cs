@@ -79,7 +79,7 @@ public class WeatherForecastEntity
     public int? CloudCover { get; set; }
 
     /// <summary>
-    /// Нижняя граница облачности.
+    
     /// </summary>
     [Column("lower_limit_cloud_cover")]
     public int? LowerLimitCloudCover { get; set; }
